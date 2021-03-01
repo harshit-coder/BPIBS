@@ -1,0 +1,111 @@
+
+	  {% extends "Student_Dashboard.html" %} {% load static %} {% block content %}
+	  <h1 class="text-center" style="margin-top: 56px; font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Update Details:</h1>
+  {% if messages %}
+
+    {% for message in messages %}
+
+
+	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+ {% endfor %}
+	  {% endif %}
+	<div class="container">
+	  <div>
+		  <!--form start-->
+	<form class="mx-2 my-2 px-2 py-2 frm " action='' method="post">
+         {% csrf_token %}
+
+		<h6>Your Details:</h6>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+		<p>Name</p>
+		{{ fo.s_name}}
+    </div>
+    <div class="form-group col-md-4">
+		<p>University Roll No</p>
+		{{ fo.Univroll}}
+    </div>
+  </div>
+		<div class="form-row ">
+    <div class="form-group col-md-4">
+		<p>Mobile  No</p>
+		{{ fo.s_phone_no}}
+    </div>
+    <div class="form-group col-md-4">
+		<p>Alternate Phone No</p>
+		{{ fo.alt_phone}}
+    </div>
+  </div>
+			<div class="form-row ">
+    <div class="form-group col-md-4">
+		<p>Email Id</p>
+		{{ fo.s_email_id}}
+    </div>
+    <div class="form-group col-md-4">
+		<p>Date of birth</p>
+		{{ fo.d_o_b}}
+    </div>
+  </div>
+			<div class="form-row ">
+    <div class="form-group col-md-4">
+		<p>Course</p>
+		{{ fo.c_name}}
+
+    </div>
+
+
+  </div>
+		<div class="form-row">
+			<div class="form-group col-md-4"> <p>Starting year of your batch</p> {{ fo.btch_start }}</div>
+			<div class="form-group col-md-4"> <p>Ending year of your batch</p>{{ fo.btch_end }}</div>
+		</div>
+		<br>
+		<h6>Education Details:</h6>
+		<div class="form-row">
+				<div class="form-group col-md-4"><p>School Name</p>  {{ fo.sch_name}}</div>
+				<div class="form-group col-md-4"> <p>Graduation College Name(if) </p>{{ fo.grad_name}}</div>
+		</div>
+		<div class="form-row">
+				<div class="form-group col-md-4"> <p>12TH grade %</p> {{ fo.sch_per}} <small>Ug students please write "Pursuing"</small></div>
+
+				<div class="form-group col-md-4">  <p>% in Graduation(if)</p>{{ fo.grad_per}} <small>Ug students please write "0.0"</small></div>
+
+		</div>
+
+
+		<div class="form-row ">
+			<div class="col-md-8">
+				<p>Other Skills</p>
+				 {{ fo.other_skills}}</div>
+
+		</div>
+	<br>
+		  <div class="form-row"><div class="col-md-8"><p>Field of interest</p>
+{{ fo.field}}</div>
+  </div>
+		<br>
+		<h6>Projects:</h6>
+		  <div class="form-row">
+			  <div class="col-md-8">
+     {{ fo.projects}}</div>
+  </div>
+		<br>
+		<h6>Internships:</h6>
+		  <div class="form-row"><div class="col-md-8">
+    {{ fo.any_internships}}</div>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary mt-2">Update</button>
+</form>
+
+		<!--form end-->
+		</div>
+	  </div>
+
+			{% endblock %}

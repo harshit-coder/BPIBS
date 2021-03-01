@@ -1,0 +1,67 @@
+
+	  {% extends "Placement.html" %} {% load static %} {% block content %}
+	  <h1 class="text-center" style="margin-top: 56px; font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Any Query:</h1>
+  {% if messages %}
+
+    {% for message in messages %}
+
+
+	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+ {% endfor %}
+      {% endif %}
+	<div class="container">
+	  <div>
+		  <!--form start-->
+	<form class="mx-2 my-2 px-2 py-2 frm " action="" method='post'> {% csrf_token %}
+
+  <div class="form-row ">
+    <div class="form-group col-md-6">
+        <p>Your Name</p>
+   {{ cfrm.nme }}
+    </div>
+  
+  </div>
+		<div class="form-row ">
+    <div class="form-group col-md-6">
+        <p>Email Id</p>
+      {{ cfrm.eml }}
+    </div>
+   
+  </div>
+			<div class="form-row ">
+    <div class="form-group col-md-6">
+        <p>University Roll no</p>
+      {{ cfrm.uroll }}
+    </div>
+   
+  </div>
+			<div class="form-row ">
+    <div class="form-group col-md-6">
+        <p>course</p>
+   {{ cfrm.crse }}
+    </div>
+   
+			
+  </div>
+		<div class="form-row">
+
+				<div class="form-group col-md-6">    <p>Message</p>{{ cfrm.qury }}</div>
+				
+		</div>
+		<br>
+		
+		
+		
+  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>  
+		
+		<!--form end-->
+		</div>
+	  </div>
+		  
+		
+{% endblock %}

@@ -1,0 +1,48 @@
+	    {% extends "Officer_Dashboard.html" %} {% load static %} {% block content %}
+	  
+	  <h4 class="  text-center" style="margin-top: 96px;  margin-bottom: 6px; ;font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">View Details:</h4>
+
+	<div class="container " style="border: 1px inset black;">
+		
+	  
+		  <!--details start-->
+		<div class="row">
+		  <div class="col-md-4">
+	     <h4>Basic Information:</h4>
+		  <p><b>Name:</b> {{ dd.s_name }}</p>
+		  <p><b>University Roll no:  </b>{{ dd.Univroll }}</p>
+		  <p><b>Phone No:</b> {{ dd.s_phone_no }}</p>
+		  <p><b>Alternate Phone No: </b> {{ dd.alt_phone }}</p>
+		  <p><b>Email Id:  </b>{{ dd.s_email_id }}</p>
+		  <p><b>D.O.B. :</b> {{ dd.d_o_b }}</p>
+		  <p><b>Course:</b>{{ dd.c_name }}</p>
+
+		  <p><b>Batch start:</b> {{ dd.btch_start }} <span><b>	Batch end:</b>{{ dd.btch_end }}</span></p>
+		  </div>
+		  <div class=" col-md-4">
+		   <h4>Education Details:</h4>
+			   <p><b>School Name:</b>{{ dd.sch_name }}</p>
+		  <p><b>Graduation College Name(If):</b>{{ dd.grad_name }}</p>
+		  <p><b>12th Percentage</b>{{ dd.sch_per }}</p>
+		  <p><b>Graduation Percentage </b>{{ dd.grad_per }}</p>
+		  <p><b>Any Other Skills </b>{{ dd.other_skills }}</p>
+
+
+			  </div>
+	<div class="col-md-4">
+				  <h4>Field of  interest:</h4>
+		<p><b  class="ml-1">Field of Interest:</b>{{ dd.field }}</p>
+		  <h4>Projects:</h4>
+		<p><b class="ml-1">Projects :</b>{{ dd.projects }}</p>
+		  <h4>Internsips or Trainings:</h4>
+		<p><b  class="ml-1">Internsips or Trainings:</b> {{ dd.any_internships }}</p>
+			</div>
+			</div>
+
+		<!--details end-->
+			
+		</div>
+	
+		  
+			  {% endblock %}

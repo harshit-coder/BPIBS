@@ -1,0 +1,160 @@
+@charset "utf-8";
+.navhead {
+}
+
+.image{
+	height: 187px;
+	width: 179px;
+}
+.nav-item{
+	color: white;
+	
+}
+
+
+.form-group{
+	margin: 5px;
+	padding: 5px
+}
+
+.co{
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	background-color: blue;
+	width: 100%;
+	
+}
+.frm{
+	font-family: Baskerville, "Palatino Linotype", "Palatino", "Century Schoolbook L", "Times New Roman", "serif";
+  border: 1px inset black;
+	margin: 50px;
+	padding: 5px;
+
+
+}
+span>img{
+	margin: 6px 4px;
+	width: 180px;
+	height: 150px;
+	padding: 2px 6px;
+}
+
+
+
+.dropdown:hover>.dropdown-menu
+{
+	display: block;
+	
+}
+
+
+.dropdown-menu{
+	background-color: white;
+	
+}
+.dropdown-item{
+	color: black;
+}
+.navbar-toggler-icon{
+	color: white;
+	outline: none;
+	
+}
+    .swiper-container {
+		
+      width: 100%;
+      height: 100%;
+      background: #000;
+	margin-bottom :0px;
+    }
+
+    .swiper-slide {
+      font-size: 18px;
+      color: #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 80px 300px;
+		
+    }
+
+@media screen and (max-width: 874px) {
+  .swiper-slide {padding: 50px 50px;}
+
+}
+
+
+
+
+    .parallax-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 130%;
+      height: 100%;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .swiper-slide .title {
+      font-size: 41px;
+      font-weight: 300;
+		font-family: "stencil-std";
+		
+    }
+
+    .swiper-slide .subtitle {
+      font-size: 21px;
+    }
+
+    .swiper-slide .text {
+      font-size: 16px;
+      max-width: 500px;
+      line-height: 2;
+		font-family: "adamina";
+		
+    }
+
+.card{
+	border: none;
+	margin: 5px;
+}
+
+.st{
+	background-color: cyan;
+	
+}
+.nohead{
+	border: none;
+	background-color: cyan;
+}
+
+.btn{
+	background-color:white;;
+	border-radius:0; 
+	color: black;
+	
+}
+
+.btn:hover{
+	background-color: black;
+	color: white;
+}
+
+.nav-link:hover{
+  background-color: darkgray;
+	border-radius: 5px;
+	color: white;
+  
+	
+		
+}
+
+li:hover
+{
+        background-color:green;
+        color:white;
+
+}
+.modal-content{
+	background-color: cyan;
+}

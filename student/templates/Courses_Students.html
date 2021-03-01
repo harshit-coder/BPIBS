@@ -1,0 +1,88 @@
+
+	    {% extends "Officer_Dashboard.html" %} {% load static %} {% block content %}{% load mathfilters %}
+	  <h4 class="  text-center" style="margin-top: 96px;  margin-bottom: 6px; ;font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Students of your Course:</h4>
+
+	<div class="container" >
+
+
+		  <!--details start-->
+		<div class="accordion" id="accordionExample">
+            {% for s in li %}
+  <div class="card">
+    <div class="card-header" id="heading{{ s }}">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ s }}" aria-expanded="true" aria-controls="collapse{{ s }}">
+          Batch : {{ s|sub:c.total_year }}-{{s}}, {{ forloop.counter }}-year
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse{{ s }}" class="collapse show" aria-labelledby="headingOne{{ s }}" data-parent="#accordionExample">
+      <div class="card-body">
+		<table id="Table{{ s }}" class="table table-hover">
+  <thead class="thead-dark" >
+
+    <tr>
+      <th>Roll No.</th>
+      <th>Name</th>
+		 <th>Course</th>
+      <th>12th %</th>
+		 <th>Graduation %</th>
+      <th>Read More:</th>
+      
+    </tr>
+  </thead>
+  <tbody> {% for j in so %}
+
+
+{% if s == j.btch_end %}
+
+    <tr>
+
+
+      <td>{{ j.Univroll }}</td>
+      <td>{{ j.s_name }}</td>
+		   <td>{{ j.c_name }}</td>
+      <td>{{ j.sch_per }}</td>
+		   <td>{{ j.grad_per }}</td>
+        <td><button class="btn"><a href="Students_Data\{{ j.Univroll }}">View</a></button></td>
+
+
+    </tr>
+  {% else %}
+  {% endif %}
+
+  {% endfor %}
+
+
+
+
+	
+  </tbody>
+</table>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+		<!--details end-->
+			
+		</div>
+	
+		
+	  <!-- Swiper JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+  {% for s in li %}
+		<script>
+	  $('#Table{{ s }}').dataTable( {
+  
+		  "paging": false
+} );
+	  </script>
+         {% endfor %}
+	
+
+{% endblock %}

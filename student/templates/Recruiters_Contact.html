@@ -1,0 +1,64 @@
+
+	  {% extends "Placement.html" %} {% load static %} {% block content %}
+	  <h1 class="text-center" style="margin-top: 56px; font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Recruiter Contact Form</h1>
+  {% if messages %}
+
+    {% for message in messages %}
+
+
+	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+ {% endfor %}
+{% endif %}
+
+
+	<div class="container">
+	  <div>
+		  <!--form start-->
+	<form class="mx-2 my-2 px-2 py-2 frm " action='' method="post">
+  {% csrf_token %}
+  <div class="form-row ">
+    <div class="form-group col-md-4">
+        <p>Company Name</p>
+    {{ stufrm.company_name}}
+    </div>
+  
+  </div>
+		<div class="form-row ">
+    <div class="form-group col-md-4">
+        <p>Mobile No</p>
+     {{ stufrm.company_phone }}
+    </div>
+   
+  </div>
+			<div class="form-row ">
+    <div class="form-group col-md-4">
+        <p>Email ID</p>
+      {{ stufrm.company_email}}
+    </div>
+  
+  </div>
+		
+		<div class="form-row">
+				<div class="form-group col-md-8"><p>Your company details</p>{{ stufrm.company_det}}
+				
+		</div>
+	
+        </div>
+		  <div class="form-row"><div class="col-md-6"><p>Linked in url</p>
+    {{ stufrm.url_linked_in}}</div>
+  </div>
+		
+		
+		
+  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>  
+		
+		<!--form end-->
+		</div>
+	  </div>
+		  
+			 {% endblock %}

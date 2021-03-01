@@ -1,0 +1,136 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+	  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+	
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+      <link href="{% static  '/style.css' %}"  rel="stylesheet" type="text/css">
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<title>Hello, world!</title>
+  </head>
+  <body style="background-color: cyan">
+	  <div>
+	
+		<nav class=" navbar navbar-expand-lg navbar-light  " style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif' ; background-color: indigo; ">
+	
+  <a class="navbar-brand navhead" href="/Officer_Dashboard">   <img src="https://www.bpibs.in/assets/images/bpibs-179x128-91.png" width="60" height="60" class="d-inline-block align-top" alt=""></a>
+							 <span class=" navbar-text small text-center text-white" style="font-size: 15px; font-weight: bold">
+    
+				 <div class="text-center">Placement Officer</div>
+				 <div>Dashboard</div>
+  </span>
+	
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="True" aria-label="Toggle navigation ">
+    <span class="navbar-toggler-icon" style="color: white;"></span>
+  </button>
+ 
+			
+  <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+	  
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+		
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="/Officer_Dashboard">Home <span class="sr-only">(current)</span></a>
+      </li>
+		 <li class="nav-item active">
+        <a class="nav-link text-white" href="/Add_Notification">Notification <span class="sr-only">(current)</span></a>
+      </li>
+		
+		 
+		<li class="nav-item active">
+        <a class="nav-link text-white" href="/Students_Data">Student<span class="sr-only">(current)</span></a>
+      </li>
+		<li class="nav-item active">
+        <a class="nav-link text-white" href="/Officer_Logout">Log Out <span class="sr-only">(current)</span></a>
+      </li>
+			
+		
+     
+    
+    </ul>
+   
+  </div>
+</nav>
+	  </div>
+	  {% block content %}
+       {% if messages %}
+
+    {% for message in messages %}
+
+
+	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+ {% endfor %}
+  {% endif %}
+	  <h4 class="  text-center" style="margin-top: 96px;  margin-bottom: 6px; ;font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Recruiters Contacted To you:</h4>
+
+	<div class="container" >
+		
+	  
+		  <!--details start-->
+		<table id="Table1" class="table table-hover">
+  <thead class="thead-dark" >
+    <tr>
+      <th>Time</th>
+      <th   >Company Name</th>
+		 <th>Mobile No</th>
+      <th   >Email Id</th>
+		 <th>Details</th>
+      <th   >Linked In url</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+   {% for h in f %}
+    <tr>
+     
+      <td>{{ h.d }}</td>
+
+		   <td>{{ h.company_name }}</td>
+      <td>{{ h.company_phone }}</td>
+		   <td>{{ h.company_email }}</td>
+      <td>{{ h.company_det }}</td>
+         <td><a href="{{ h.url_linked_in }} ">Link</a></td>
+     
+    </tr>
+      {% endfor %}
+
+  </tbody>
+</table>
+		<!--details end-->
+		
+			
+		</div>
+	
+		{% endblock %}
+	  <!-- Swiper JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+ 
+		<script>
+	  $('#Table1').dataTable( {
+  "ordering": false,
+		  "paging": false
+} );
+	  </script>
+	
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  </body>
+</html>

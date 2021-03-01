@@ -1,0 +1,268 @@
+{% extends "Placement.html" %} {% load static %} {% block content %}
+<h1 class="text-center" style="margin-top:10px; font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Welcome To the Department Of {{ a.cname }} - {{ a.total_year }} years</h1>
+
+	
+<div class="container"  >
+		  <div class="card ">
+  <div class="card text-center  ">
+  <div class="card-body ">
+    <h5 class="card-title text-center" style="font-family: 'averia-serif-libre';">Message From the Placement Officer</h5>
+    <p class="card-text" style="font-family: 'stencil-std';">Now it is the turn of VUCA World of changing. The acronym VUCA stands for Volatile, Unstable, Complex
+and Ambiguous. It is estimated that around three billion more people will be added to the Earth-Planet between
+today and 2050. Hence, the it is the mammoth task of Global Business System to revisit and reinvent the whole
+Business Arena and there is likely to be a big shift in consumer spending through digital-age and revolution</p>
+	  <footer class="blockquote-footer text-right">
+		  <p>{{ p.P_name }},Department of {{ a.cname }}-{{ a.total_year }} years</p>
+	  </footer>
+    <a href="#" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalLong"> Read More:</a>
+  </div>
+</div>
+			  </div>
+	  </div>
+	
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: cyan;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message from the director</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <p>
+			<p>Now it is the turn of VUCA World of changing. The acronym VUCA stands for Volatile,
+Unstable, Complex and Ambiguous. It is estimated that around three billion more people will be
+added to the Earth-Planet between today and 2050. Hence, it is the mammoth task of Global
+Business System to revisit and reinvent the whole Business Arena and there is likely to be a big
+				shift in consumer spending through digital-age and revolution.</p>
+BPIBS, through its strategic plans, state-of-the-art infrastructure its tailor-made arms of
+curriculum besides the excellent fleet of Faculty Members impeccably mould its Management
+Students to enable them to counter the Volatility with Vision, Uncertainty with Understanding,
+Complexity with Clarity and finally Ambiguity with Agility. Indeed, BPIBS develops this
+outlook and various Skill-Sets to match the contemporary global business environment, though it
+		  is tricky and formidable to surpass.</p><p>
+I am quite delighted to note that BPIBS is publishing its Management Placement Brochure for its
+MBA Final Year Students which would act as a Mehdoot to propagate its events and
+achievements amongst the Trade and Industry. I further hope that this Management Brochure
+will also enable the Management Students to get their Best Placements for their future career. Let
+me grab this opportunity to wish them All-The-Best!
+
+		  </p>
+      </div>
+    
+    </div>
+  </div>
+</div>
+	  <div class="container-fluid">
+	 	   <div class="row">
+               {% if l.count >= 3 %}
+			   <div class="col-md-6" style="margin-top:15px;">
+		 
+			   <div id="graph" style="margin-top:20px;" ></div>
+				   </div>
+
+                 <script>
+				  Highcharts.chart('graph', {
+  chart: {
+    type: 'pie',
+	   backgroundColor: 'white',
+
+    options3d: {
+      enabled: true,
+      alpha: 45,
+      beta: 0
+    }
+  },
+  title: {
+    text: 'COMPANY WISE PLACEMENT {% if a.cname == "MBA" %} WITH PACKAGES {% else %} With No. of Students{% endif %}'
+  },
+  accessibility: {
+    point: {
+      valueSuffix: '%'
+    }
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: false,
+      cursor: 'pointer',
+      depth: 35,
+      dataLabels: {
+        enabled: true,
+        format: '{point.name}'
+      }
+    }
+  },
+  series: [{
+    type: 'pie',
+    name: '{% if a.cname == "MBA" %}Package{% else %}Students{% endif %}',
+    data: [
+    {% for ll in l %}
+      ['{{ ll.company }}', {{ ll.number }}],
+      {% endfor %}
+    ]
+  }]
+});
+			  </script>
+               {% else %}
+                 <div class="col-md-6" style="margin-top:15px;">
+
+			   <div id="graph1" style="margin-top:20px;" ></div>
+				   </div>
+
+                <script>
+				  Highcharts.chart('graph1', {
+  chart: {
+    type: 'pie',
+	   backgroundColor: 'white',
+
+    options3d: {
+      enabled: true,
+      alpha: 45,
+      beta: 0
+    }
+  },
+  title: {
+    text: 'Placement Statistics'
+  },
+  accessibility: {
+    point: {
+      valueSuffix: '%'
+    }
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: false,
+      cursor: 'pointer',
+      depth: 35,
+      dataLabels: {
+        enabled: true,
+        format: '{point.name}'
+      }
+    }
+  },
+  series: [{
+    type: 'pie',
+    name: 'Browser share',
+    data: [
+    {% for v in b %}
+      ['{{ v.Batch_start }}-{{ v.Batch_end }}', {{ v.no_of_stud }}],
+      {% endfor %}
+    ]
+  }]
+});
+			  </script>
+
+		{% endif %}
+			   
+		  <div class="col-md-6">
+			  <div class="card text-center" >
+  <div class="card-body">
+    <h5 class="card-title">About {{ a.cname }}-{{ a.total_year }} years</h5>
+    <p class="card-text">In this emerging global competitive environment there is an utmost need for providing
+management discipline support to deserving students. The department of {{ a.cname }} Studies imparts
+high quality formal education in management through our comprehensive
+ {{ a.cname }}-{{ a.total_year }} years Programme</p>
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong1">Read More:</a>
+  </div>
+                  <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: cyan;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle1">Message from the director</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <p>
+			<p>In this emerging global competitive environment there is an utmost need for providing
+management discipline support to deserving students. The department of {{ a.cname }}-{{ a.total_year }} years Studies imparts
+high quality formal education in management through our comprehensive {{ a.cname }}-{{ a.total_year }} . It is a matter of great satisfaction that {{ a.cname }}-{{ a.total_year }}  Department of Bhai Parmanand
+Institute of Business Studies continues to be one of the highly sought department for admission
+to its management programmes under GGSIP University. With immense pride and satisfaction,
+we wish to share that students of {{ a.cname }}-{{ a.total_year }}  Department have shown remarkable track records in the
+field of Academia. The course has been purposefully designed to be rigorous, demanding and
+fast paced so that students can be taken out of their comfortzones and they gain capability to
+stand firm on their ethical and professional values.
+
+		  </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+                  {% for qq in o %}
+				  <div class="card text-center"  >
+  <div>
+{% if qq.brochure %}
+      <a href="/media/{{ qq.brochure }" ><li class="list-group-item btn btn-primary  style="background-color: cyan">PLACEMENT BROCHURE</li></a>
+      {% else %}
+
+{% endif %}
+{% if qq.stulist %}
+	
+      <a href="/media/{{ qq.stulist }}"><li class="list-group-item btn btn-primary  style="background-color: cyan">YEAR WISE PLACEMENT</li></a>
+          {% else %}
+{% endif %}
+      {% if qq.brochureurl %}
+	  <a href="{{ qq.brochureurl }}" ><li class="list-group-item btn btn-primary  style="background-color: cyan">PLACEMENT BROCHURE</li></a>
+      {% else %}
+{% endif %}
+{% if qq.stulisturl %}
+
+    <a href="{{ qq.stulisturl }}"><li class="list-group-item btn btn-primary  style="background-color: cyan">YEAR WISE PLACEMENT</li></a>
+          {% else %}
+{% endif %}
+    {% endfor %}
+  </div>
+</div>
+</div>
+		
+  </div>
+  
+</div>
+			   </div>
+		  
+
+	
+	{% if m %}
+	<div class="container ">
+		<hr  style="background-color: black;">
+	<h4>Students Placed In: </h4>
+		<span >
+            {% for mm in m %}
+            {% if mm.img %}
+		<img src="/media/{{mm.img }}" alt="#">
+             {% else %}
+{% endif %}
+              {% if mm.imgurl %}
+		<img src="{{mm.imgurl }}" alt="#">
+             {% else %}
+{% endif %}
+
+{% endfor %}
+		</span>
+</div>
+ {% else %}
+{% endif %}
+		  
+
+
+
+	  
+	  
+	 
+	  
+  <!-- Copyright -->
+{% endblock %}
+

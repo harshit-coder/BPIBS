@@ -1,0 +1,130 @@
+  {% extends "Officer_Dashboard.html" %} {% load static %} {% block content %}
+	  {% load mathfilters %}
+	  <h4 class="  text-center" style="margin-top: 96px;  margin-bottom: 6px; ;font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Add Notifications:</h4>
+  {% if messages %}
+
+    {% for message in messages %}
+
+
+	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+ {% endfor %}
+  {% endif %}
+	<div class="container" >
+	<form class="mx-2 my-2 px-2 py-2 frm  " action='' method='post'> {% csrf_token %}
+		 <div class="form-row ">
+    <div class="form-group col-md-6">
+        <p>Add course</p>
+		 {{ eform.add_course }}
+    </div>
+         </div>
+  
+  <div class="form-row ">
+    <div class="form-group col-md-6">
+        <p>Add message</p>
+{{ eform.add_notification }}
+    </div>
+  
+  </div>
+		<div class="form-row">
+		  <div class="form-group col-md-4">
+              <p>Any link</p>
+      {{ eform.messurl }}
+    </div>
+
+		</div>
+	
+			
+		<div class="form-row">
+
+         				<div class="form-group col-md-4">   <p>Starting batch</p>
+				{{ eform.start_batch }}</div>
+
+				<div class="form-group col-md-4"> <p> Ending batch</p>{{ eform.end_batch }}</div>
+		</div>
+<div>
+    <small>*Batch Start- 0  and Batch-end- 0 (Send to all batches)</small>
+</div>
+			{% for l in li %}
+  <div>
+			<small>*Batch Start-{{ l|sub:c.total_year }}  and Batch-end-{{ l }} (Send to {{ forloop.counter }}-year)</small>
+  </div>
+        {% endfor %}
+
+  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>  
+		
+<hr  class="mb-3" style="background-color: black;">
+		<h5>Old Notifications:</h5>
+			<table id="Table8" class="table table-hover">
+  <thead class="thead-dark" >
+    <tr>
+      <th>Time</th>
+      <th>Message</th>
+		 <th>Link</th>
+		
+      <th>Batch-Start</th>
+		 <th>Batch-End</th>
+		<th>Update</th>
+		 <th>Delete</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for edat in edata %}
+    <tr>
+      
+      <td>{{ edat.d_te }}</td>
+      <td>{{ edat.add_notification }}</td>
+		  <td>{{ edat.messurl }}</td>
+      <td>{{ edat.start_batch }}</td>
+		  <td>{{ edat.end_batch }}</td>
+           <td><button type="submit" class="btn btn-primary" ><a href="/Add_Notification/update/{{ edat.id }}">Update</a></button></td>
+		 <td><button type="submit" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal{{ edat.id }}">Delete</button></td>
+		<div class="modal" id="exampleModal{{ edat.id }}"   tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this Notification?</p>
+      </div>
+      <div class="modal-footer">
+		          <button type="button" class="btn btn-primary mr-20"><a href="/Add_Notification/delete/{{ edat.id }}">Yes</a></button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+		
+    </tr>
+   {% endfor %}
+	
+  </tbody>
+</table>
+</div>
+		
+		
+	
+		
+	  <!-- Swiper JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+ 
+		<script>
+	  $('#Table8').dataTable( {
+  		"ordering":false,
+		  "paging": false
+	  } );
+	  </script>
+	
+{% endblock %}

@@ -1,0 +1,588 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	  
+	
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="{% static  '/style.css' %}" rel="stylesheet" type="text/css">
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+	  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<title>Hello, world!</title>
+  </head>
+  <body style="background-color: ">
+	  <div  style=" background-color: lightcoral">
+	
+		<nav class=" navbar  navbar-expand-lg navbar-light  " style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif' ; ">
+	
+  <a class="navbar-brand navhead ml-5" href="/">   <img src="https://www.bpibs.in/assets/images/bpibs-179x128-91.png" width="100" height="70" class="d-inline-block align-top" alt=""></a>
+							 <span class=" navbar-text mr-auto  text-center " style="font-size: 20px; font-weight: bold ; text-decoration-color: black; color: black; ; text-shadow: 1px 1px #FF0000;">
+    
+				 <h4>
+					 <div>PLACEMENT CELL</div></h4>
+  </span>
+	
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="True" aria-label="Toggle navigation " style="border: none;">
+    <span class="navbar-toggler-icon" style="color: white;"></span>
+  </button>
+
+			
+  <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+	  
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+		
+      <li class="nav-item active">
+        <a class="nav-link " href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+		 <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Courses
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for i in c %}
+			
+          <a class="dropdown-item text-black" href="/courses/{{i.cname }}">{{ i.cname }}-{{i.total_year}} Years</a>
+			  {% endfor %}
+
+         
+		
+        </div>
+      </li>
+		 <li class="nav-item active dropdown ">
+        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Students
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+			
+          <a class="dropdown-item text-black" href="/Register">Register</a>
+			
+          <a class="dropdown-item text-black" href="/Student_Login">Log in</a>
+			 
+        
+      
+        </div>
+      </li>
+		<li class="nav-item active">
+        <a class="nav-link " href="/Officer_Login">Training Officer <span class="sr-only">(current)</span></a>
+      </li>
+		<li class="nav-item active">
+        <a class="nav-link " href="/Recruiters_Contact">Recruiter <span class="sr-only">(current)</span></a>
+      </li>
+			
+		<li class="nav-item active">
+        <a class="nav-link " href="/ContactUs">Contact Us <span class="sr-only">(current)</span></a>
+      </li>
+     
+    
+    </ul>
+   
+  </div>
+			
+</nav>
+		   
+	  </div>
+	  
+	{% block content %}
+		<div class="swiper-container">
+    <div class="parallax-bg" style="background-image:url({% static '/sem2.jpg' %}); opacity:0.4;" data-swiper-parallax="-23%"></div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="title" data-swiper-parallax="-300">“The Mission”</div>
+       
+        <div class="text" data-swiper-parallax="-100">
+          <p>To foster an intellectual and ethical environment in
+which both skill and spirit will thrive so as to impart
+quality education through innovative teaching
+methodology, training and services with the Global
+outlook. To germinate the talented BusinessExecutives-of-Tomorrow in order to equip themselves
+to face the turbulent challenges from all directions of
+the Business World
+.</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="title" data-swiper-parallax="-300" data-swiper-parallax-opacity="0">“Vision”</div>
+      
+        <div class="text" data-swiper-parallax="-100">
+          <p>To become a World-Class State-of-the-art Centre in
+providing Quality Oriented Higher Education in line
+with the Global Standards in the field of Management
+or Business Administration and to nurture social and
+cultural values of the Indian Society amongst the
+students.</p>
+        </div>
+      </div>
+    
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-white"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+  </div>
+
+<div class="container" style="margin-top: 5px;" >
+		  <div class="card ">
+  <div class="card text-center  ">
+  <div class="card-body ">
+    <h5 class="card-title text-center" style="font-family: 'averia-serif-libre';">MESSAGE FROM THE DIRECTOR</h5>
+    <p class="card-text" style="font-family: 'stencil-std';">Now it is the turn of VUCA World of changing. The acronym VUCA stands for Volatile, Unstable, Complex
+and Ambiguous. It is estimated that around three billion more people will be added to the Earth-Planet between
+today and 2050. Hence, the it is the mammoth task of Global Business System to revisit and reinvent the whole
+Business Arena and there is likely to be a big shift in consumer spending through digital-age and revolution</p>
+    <a href="#" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalLong"> Read More:</a>
+  </div>
+</div>
+			  </div>
+	  </div>
+	
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: cyan;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message from the director</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <p>
+			<p>Now it is the turn of VUCA World of changing. The acronym VUCA stands for Volatile,
+Unstable, Complex and Ambiguous. It is estimated that around three billion more people will be
+added to the Earth-Planet between today and 2050. Hence, it is the mammoth task of Global
+Business System to revisit and reinvent the whole Business Arena and there is likely to be a big
+				shift in consumer spending through digital-age and revolution.</p><p>
+BPIBS, through its strategic plans, state-of-the-art infrastructure its tailor-made arms of
+curriculum besides the excellent fleet of Faculty Members impeccably mould its Management
+Students to enable them to counter the Volatility with Vision, Uncertainty with Understanding,
+Complexity with Clarity and finally Ambiguity with Agility. Indeed, BPIBS develops this
+outlook and various Skill-Sets to match the contemporary global business environment, though it
+		  is tricky and formidable to surpass.</p>
+I am quite delighted to note that BPIBS is publishing its Management Placement Brochure for its
+MBA Final Year Students which would act as a Mehdoot to propagate its events and
+achievements amongst the Trade and Industry. I further hope that this Management Brochure
+will also enable the Management Students to get their Best Placements for their future career. Let
+me grab this opportunity to wish them All-The-Best!
+
+		  </p>
+      </div>
+    
+    </div>
+  </div>
+</div>
+	  
+	  <div style="background-color: darkmagenta; width:100%;">
+		  <div class="container">
+			  <div class="card text-center text-white" style="background-color: darkmagenta;">
+ 
+  <div class="card-body">
+    <h3 class="card-title" style="font-family:Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'; border: medium; border-color: white;">PLACEMENT PROCESS
+</h3>
+   
+ 
+  </div>
+ 
+</div>
+		<div class="card-group"  style="margin-top:2px;">
+  <div class="card" style="background-color: darkmagenta;">
+    
+    <div class="card-body" >
+      <h5 class="card-title text-white" style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';">Placement Activities</h5>
+      <p class="card-text text-white" >With time and experience BPIBS has successfully evolved a multi-pronged strategical approach towards placements where a team of faculty headed
+</p>
+      <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong1"> Read More:</a>
+    </div>
+  </div>
+			
+			<!-- Modal -->
+<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <h5 class="modal-title  text-black" id="exampleModalLongTitle1">Placement Activities </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-black">
+        <p>With time and experience BPIBS has successfully evolved a multi-pronged strategically approach towards
+placements where a team of faculty headed by a Placement Officer dedicatedly work round-the-clock to avail best
+			profiles for BPIBS students.</p><p>
+At the next level, the Institute has a Team of Students from MCA Program that continuously organize events and
+other such activities that help in establishing healthy relations with Corporate World, while assisting faculty to bring
+		  best companies to the campus</p>
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
+			
+			
+			
+			
+  <div class="card" style="background-color: darkmagenta;">
+    
+    <div class="card-body text-white">
+		<h5 class="card-title text-white" style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';">Internship Program</h5>
+<p class="card-text ">As a compulsory part of curriculum, every student of MBA Programme is required to undergo Summer Internship with an organization for a period
+  of 8 to 10 weeks. 
+  
+</p>
+	  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong2"> Read More:</a>
+     
+    </div>
+  </div>
+			<!-- Modal -->
+<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-black" id="exampleModalLongTitle2">Internship Program</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-black">
+        <p>As a compulsory part of curriculum, every student of MCA Program is required to undergo Internship with an
+organization for a period of 6 months. The primary purpose served by this training are –</p><p> Equipping our students with real time problem solving skill by exposing them to rigors of real time corporate
+environment.</p><p> Practical application of text book knowledge integrating theory into practice.</p>
+
+<p>  Giving glimpse of Corporate Culture, Team Dynamics, Leadership Skills and Technical Skills to our
+students.</p>
+<p>The motive behind the internship is that, having handled a live problem, students come out of training as a molded
+person with much more matured knowledge of understanding and equipping themselves to learn as to how the
+management works and what are the tactical and strategic challenges faced by the Engineers of the present
+globalized scenario.</p>
+
+      </div>
+   
+    </div>
+  </div>
+</div>
+  <div class="card" style="background-color: darkmagenta;">
+    
+    <div class="card-body text-white">
+      <h5 class="card-title " style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';">Placement Talk</h5>
+      <p class="card-text">The pre-placement talks provide opportunity for the students to have knowledge about the company, kind of profile it offers and the career growth
+path available. </p>
+		<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong3"> Read More:</a>
+		
+	
+      
+    </div>
+  </div>
+				<!-- Modal -->
+<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle3" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content text-black">
+      <div class="modal-header">
+        <h5 class="modal-title text-black"  id="exampleModalLongTitle3">Placement Talk</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-black">
+        <p>The pre-placement talks provide opportunity for the students to have knowledge about the company, kind of profile
+it offers and the career growth path available. Here, company representatives interact with the students entertaining
+their doubts and students also get to know the working style and his own compatibility with the company</p>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+		  </div>
+	  
+	</div>
+	  </div>
+
+	  <div class="container" >
+	  
+	  <div class="row">
+  <div class="col-sm-6">
+    <div class="card ">
+		
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';">ABOUT BPIBS
+</h5>
+        <p class="card-text">Bhai Parmanand Institute of Business Studies established as a unique Post-Graduate Management Institute promoted by Government of Delhi in
+1986.</p>
+        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong4"> Read More:</a>
+      </div>
+		<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle4" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle4">ABOUT BPIBS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Genesis</h5><p>Bhai Parmanand Institute of Business Studies established as a unique Post-Graduate
+Management Institute promoted by Government of Delhi in 1986, is functioning under the aegis
+of Department of Training and Technical Education, Government of NCT of Delhi.</p>
+<h5>Courses Offered</h5>
+<p> Master of Business Administration [MBA]</p>
+<p> Master of Computer Applications [MCA]</p>
+<p> Bachelors of Business Administration [BBA-General]</p>
+		  <p> Diploma in Modern Office Practice –[ MOP-English /Hindi]</p>
+
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </div>
+	  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';">BPIBS-Institute with a Difference
+</h5>
+        <p class="card-text">BPIBS has moved ahead on the path of success since its inception, and gained the reputation of an institute par excellence in the field of
+Management Education. It is amongst the brightest initiatives undertaken by Government of Delhi to promote Management Education at PostGraduate Level.
+</p>
+        <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalLong5"> Read More:</a>
+      </div>
+		  <!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle5" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle5">BPIBS-Institute with a Difference</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <p> BPIBS has moved ahead on the path of success since its inception, and gained the reputation of an
+institute par excellence in the field of Management Education. It is amongst the brightest initiatives
+undertaken by Government of Delhi to promote Management Education at Post- Graduate Level.
+BPIBS has consistently been able to attract the best minds from the Top Scorers of COMMOM
+ENTRANCE TEST (CET) organized by GGSIP UNIVERSITY, DELHI. The best among candidates
+have always preferred BPIBS for its excellent legacy in producing true business minds capable of
+handling the most turbulent corporate challenges.
+We, at BPIBS, groom, shape and nurture raw intelligence, turning it into pure business intellects through
+stringent pedagogy along with meticulous Training Programmes under the guidance of Highly qualified
+and richly experienced Academicians, Top Notch Professionals from the most reputed Business
+Organizations, Experts from respective fields, besides enabling Study Visits to various reputed
+		   industrial establishments/Units.</p><p>
+Our students not only excel in academics, but also have equally proved their competence in extracurricular activities, Team Dynamics of Leadership Skills and Communication at college as well as
+University level.</p><p>
+BPIBS provides an opportunity to its students to explore beyond the borders and enrich their thoughtprocess through a rigorous Academic Exercise, combining an exhaustive Curriculum and Cutting-edge
+Pedagogy. Besides this, a plethora of Live Projects, Special/Expert Lectures and Mentorship
+		  Programmess give the Would-Be-Managers at BPIBS a taste of application of theory in practice.</p><p>
+Our faculty members are involved in teaching as well as making pioneering research in Key Managerial
+areas. The institute, in its quest for Three-Sixty-Degree Excellence, has resorted to hiring the best brain
+in the industry, capable of instilling the most desirable and respectable traits of a Professional who can
+		  weather every storm that comes in his way.</p><p>
+The faculty of the institute is regularly mentoring the candidates to help them cope with the times and
+proactively plan their careers. At BPIBS, we continuously endeavor to create an environment wherein
+our students think long-term strategy and continuously seek out for opportunities.
+Indeed, BPIBS has been rendering its yeomen services to the students’ community who will lead the
+nation as one of the Best Economies in the World by providing all the educational inputs and creating
+opportunities to them in all directions under the Mentorship of Dr. (Mrs.) Amita Dev, Principal, so that
+they would equip themselves to find their right and best path to settle their life in future, in the best
+		  manner possible</p>
+		  
+		  <h5>About the department of Management Studies</h5><p>
+ In this emerging global competitive environment there is an utmost need for providing
+management discipline support to deserving students. The department of MBA Studies imparts
+high quality formal education in management through our comprehensive two year Full-Time
+MBA Programme. It is a matter of great satisfaction that MBA Department of Bhai Parmanand
+Institute of Business Studies continues to be one of the highly sought department for admission
+to its management programmes under GGSIP University. With immense pride and satisfaction,
+we wish to share that students of MBA Department have shown remarkable track records in the
+field of Academia. The course has been purposefully designed to be rigorous, demanding and
+fast paced so that students can be taken out of their comfortzones and they gain capability to
+		  stand firm on their ethical and professional values.</p>
+		  
+		  
+      </div>
+      <div class="modal-footer">
+      
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';">INFRASTRUCTURE
+</h5>
+        <p class="card-text"><h6>Library</h6>
+The library services are provided to students, staff & faculty members for updating their knowledge and supporting the research and teaching /
+learning activities.
+</p>
+		<p class="card-text">
+		<h6>Networking:
+</h6>
+Most of the Polytechnic Campus has been equipped with full-network facility with the provision to provide internet facility to staff and students
+using lease line/Wi-Fi Facility/Broadband connectivity 
+		</p>
+		
+		 
+        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong6"> Read More:</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+	  </div>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle6" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle6">INFRASTRUCTURE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h5>Library</h5> <p>The library services are provided to students, staff & faculty members for updating their
+knowledge and supporting the research and teaching / learning activities. There is a rich
+collection of books covering all aspects of Engineering and Technology, Management and other
+relevant disciplines . The Polytechnics also subscribe to National, International Journals, OnLine Journals/Books etc. from renowned Academic Institutions, Research Organizations,
+Government Departments etc to promote research and foster a culture of research and
+development in the institute. Most of the Libraries have been computerized with Bar-Code
+facility for easy access, issue and return.
+		  <h5>Book bank facility</h5><p>
+All Polytechnics extends the Book Bank facility to its students hailing from the Economically
+		  Weaker Sections of the Society.</p></p>
+
+<h5>Digital classrooms</h5><p>The classrooms have been reshaped from traditional systems to Digital Mode with the State-ofthe-Art facility including, Interactive Boards, LCD Projectors, Visualizers, Multi-Purpose
+Podiums to provide conducive teaching learning environment.
+		<h5>Networking</h5><p>
+Most of the Polytechnic Campus has been equipped with full-network facility with the provision
+to provide internet facility to staff and students using lease line/Wi-Fi Facility/Broadband
+		connectivity</p></p>
+
+		  <h5>Computer centre</h5><p>
+All Polytechnics have fully air-conditioned well-equipped Computer Laboratories with the
+latest State-of-the-Art Desk Top Systems and peripherals. All the Computer Centers are
+equipped with the internet facility through dedicated Leased Line/Broadband connection. In
+addition to this, Computer Centers have been equipped with LCD Multimedia Projectors,
+Plasma TV, Large-Format Displays, Wireless Electronic Interactive Boards, Scanners,
+Visualizes, Multi-Purpose Podiums, Web Cameras, Desk-jets, Laser Printers and High
+Speed Printing and Automatic Multi-Purpose Copier/Office Machines, Servers with the
+Latest Licensed Software’s.
+	  <h5>The library</h5>
+BPIBS has got a well-stacked Digital Library with more than 33000 volumes of Books,
+Reference Materials, Subject-Oriented CDs/CBTs, Automated by
+e-GRANTALIYA Software with Bar Code facility incorporated with different Modules like
+Administration, Books Requisition, besides subscribing regularly to more than 30
+Periodicals/Magazines related to Management and Technical subjects. The DELNET
+facility is also available in the Library with the help of which the Students and Faculty
+Members can access various Journals through on-line and the Institute has subscribed to
+more than thirty periodicals and 12 National and International Journals, besides Periodicals,
+Magazines, Newsletters etc. from various leading Research Institutions, Industry
+Associations, Government Departments like CSI, IETE, ISTD, ISTE, ICAWI, IFCAI,
+		  NHRD etc. </p>
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center " style="background-color: black; color: white;">
+	  
+<div class="text-center" >
+	
+	<div class="card-deck text-black " style="padding: 10px 10px; margin-top: 30px; ">
+  <div class="card " >
+    
+    <div class="card-body" style="background-color: black">
+<div class="card-header ">Contact:</div>
+      <h5 class="card-title">Mr Kaushal Mehta</h5>
+      <p class="card-text">Phone: <span> +91 9968235554
+</span></p>
+		   <p >Email Id: <span> kpu_713@yahoo.com
+</span></p>
+		   <p >Post: <span> Assistant Professor(MCA) & Training and  plaemment officer
+</span></p>
+		
+     
+    </div>
+  </div>
+  <div class="card ">
+    
+    <div class="card-body  " style="background-color: black" >
+		<div class="card-header ">Contact :</div>
+      <h5 class="card-title">Mr. S. Thiyagarajan</h5>
+      <p>Phone : <span>9868580496</span></p>
+		   <p>Post: <span> Lecturer(MBA)   & Training and  plaemment officer
+</span></p>
+      
+    </div>
+  </div>
+  <div class="card " >
+    
+    <div class="card-body " style="background-color: black">
+		<div class="card-header ">Address:</div>
+      <h5 class="card-title">Mailing address</h5>
+      <p>Bhai Parmanand Institute of Business Studies<p>
+Opp. Madhuban Colony, Shakarpur, Delhi – 92.
+</p></p>
+     
+    </div>
+  </div>
+</div>
+		</div>
+    </footer>
+  <!-- Copyright -->
+   {% endblock %}
+
+	<div class="text-center p-3 text-light" style="background-color: black">
+    Back to Main Website: 
+    <a class="text-light" href="https://www.bpibs.in/"> 
+		 <img src="https://www.bpibs.in/assets/images/bpibs-179x128-91.png" width="60" height="60"  alt=""></a>
+  </div>
+
+	  
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      speed: 600,
+      parallax: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+		 autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+	  
+		
+	
+	  
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  </body>
+</html>

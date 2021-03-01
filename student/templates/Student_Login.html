@@ -1,0 +1,45 @@
+
+	  {% extends "Placement.html" %} {% load static %} {% block content %}
+	  <h1 class="text-center" style="margin-top: 116px; font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Student Placement Form</h1>
+  {% if messages %}
+
+    {% for message in messages %}
+
+
+	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+ {% endfor %}
+	  {% endif %}
+	<div class="container">
+	  <div>
+		  <!--form start-->
+	<form class="mx-2 my-5 px-2 py-2 frm " action='' method="post">
+         {% csrf_token %}
+
+		<h6>LOG IN:</h6>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+		<p>Username -(Your University Roll No)</p>
+		{{ SD.s_username }}
+    </div>
+
+  </div>
+		<div class="form-row ">
+    <div class="form-group col-md-6">
+		<p>Password -(The Alternate Phone No. you entered in registration form)</p>
+		{{ SD.s_password}}
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-2">Register</button>
+</form>
+
+		<!--form end-->
+		</div>
+	  </div>
+
+			{% endblock %}

@@ -1,0 +1,130 @@
+
+	  {% extends "Placement.html" %} {% load static %} {% block content %}
+	  <h1 class="text-center" style="margin-top: 56px; font-family: 'Big Shoulders Display', cursive;
+font-family: 'Merriweather', serif;">Student Placement Form</h1>
+	  {% if messages %}
+
+    {% for message in messages %}
+
+
+	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+ {% endfor %}
+{% endif %}
+{% if stufrm.errors %}
+
+	  {% for field in stufrm %}
+    {% for error in field.errors %}
+  	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{ error }}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endfor %}
+	  {% endfor %}
+	   {% for error in stufrm.non_field_errors %}
+  	<div class="alert alert-warning alert-dismissible fade show">
+        <strong>*</strong> {{ error }}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endfor %}
+
+{% endif %}
+
+	<div class="container">
+	  <div>
+		  <!--form start-->
+	<form class="mx-2 my-2 px-2 py-2 frm " action='' method="post">
+         {% csrf_token %}
+
+		<h6>Your Details:</h6>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+		<p>Name</p>
+		{{ stufrm.s_name}}
+    </div>
+    <div class="form-group col-md-4">
+		<p>University Roll No</p>
+		{{ stufrm.Univroll}}
+    </div>
+  </div>
+		<div class="form-row ">
+    <div class="form-group col-md-4">
+		<p>Mobile  No</p>
+		{{ stufrm.s_phone_no}}
+    </div>
+    <div class="form-group col-md-4">
+		<p>Alternate Phone No</p>
+		{{ stufrm.alt_phone}}
+    </div>
+  </div>
+			<div class="form-row ">
+    <div class="form-group col-md-4">
+		<p>Email Id</p>
+		{{ stufrm.s_email_id}}
+    </div>
+    <div class="form-group col-md-4">
+		<p>Date of birth</p>
+		{{ stufrm.d_o_b}}
+    </div>
+  </div>
+			<div class="form-row ">
+    <div class="form-group col-md-4">
+		<p>Course</p>
+		{{ stufrm.c_name}}
+
+    </div>
+   
+			
+  </div>
+		<div class="form-row">
+			<div class="form-group col-md-4"> <p>Starting year of your batch</p> {{ stufrm.btch_start }}</div>
+			<div class="form-group col-md-4"> <p>Ending year of your batch</p>{{ stufrm.btch_end }}</div>
+		</div>
+		<br>
+		<h6>Education Details:</h6>
+		<div class="form-row">
+				<div class="form-group col-md-4"><p>School Name</p>  {{ stufrm.sch_name}}</div>
+				<div class="form-group col-md-4"> <p>Graduation College Name(if) </p>{{ stufrm.grad_name}}</div>
+		</div>
+		<div class="form-row">
+				<div class="form-group col-md-4"> <p>12TH grade %</p> {{ stufrm.sch_per}} <small>Ug students please write "Pursuing"</small></div>
+
+				<div class="form-group col-md-4">  <p>% in Graduation(if)</p>{{ stufrm.grad_per}} <small>Ug students please write "0.0"</small></div>
+
+		</div>
+		
+		
+		<div class="form-row ">
+			<div class="col-md-8">
+				<p>Other Skills</p>
+				 {{ stufrm.other_skills}}</div>
+				
+		</div>
+	<br>
+		  <div class="form-row"><div class="col-md-8"><p>Field of interest</p>
+{{ stufrm.field}}</div>
+  </div>
+		<br>
+		<h6>Projects:</h6>
+		  <div class="form-row">
+			  <div class="col-md-8">
+     {{ stufrm.projects}}</div>
+  </div>
+		<br>
+		<h6>Internships:</h6>
+		  <div class="form-row"><div class="col-md-8">
+    {{ stufrm.any_internships}}</div>
+  </div>
+		
+		
+		
+  <button type="submit" class="btn btn-primary mt-2">Register</button>
+</form>
+
+		<!--form end-->
+		</div>
+	  </div>
+		  
+			{% endblock %}
